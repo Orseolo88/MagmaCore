@@ -1,0 +1,8 @@
+{
+    "name": "levente/magmacore",
+    "description": "A simple PHP framework for building web application",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "alpha",
+    "require": {}
+}
