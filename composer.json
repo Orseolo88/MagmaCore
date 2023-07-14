@@ -3,6 +3,29 @@
     "description": "A simple PHP framework for building web application",
     "type": "library",
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/Orseolo88/MagmaCore/issues",
+        "source": "https://github.com/Orseolo88/MagmaCore",
+        "wiki": "https://github.com/Orseolo88/MagmaCore/wiki"
+    },
     "minimum-stability": "alpha",
-    "require": {}
+    "require": {
+        "php": "7.4.2|^8.0",
+        "ext-mbstring": "*",
+        "ext-iconv": "*",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-simplexml": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Magma\\": "src/Magma"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Magma\\Tests": "tests"
+        }
+    }
 }
