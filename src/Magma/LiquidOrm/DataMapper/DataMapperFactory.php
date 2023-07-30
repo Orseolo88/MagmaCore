@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Magma\LiquidOrm\DataMapper;
 
-use Magma\DatabaseConnection\DatabaseConnectionInterface;
 use Magma\LiquidOrm\DataMapper\Exception\DataMapperException;
+use Magma\DatabaseConnection\DatabaseConnectionInterface;
 
 class DataMapperFactory
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Magma\LiquidOrm\DataMapper;
 
-use Magma\DatabaseConnection\DatabaseConnectionInterface;
 use Magma\LiquidOrm\DataMapper\Exception\DataMapperException;
+use Magma\DatabaseConnection\DatabaseConnectionInterface;
 use PDO;
 use PDOStatement;
 use Throwable;
@@ -170,6 +170,20 @@ class DataMapper implements DataMapperInterface
                     return intval($lastID);
                 }
             }
+        } catch (Throwable $throwable) {
+            throw $throwable;
+        }
+    }
+
+    public function buildQueryParameters(array $conditions = [], array $parameters = []): array
+    {
+        return (!empty($parameters)) || (!empty($conditions)) ? array_merge($conditions, $parameters) : $parameters;
+    }
+
+    public function persist(string $sqlQuery, array $parameters)
+    {
+        try {
+            return $this->prepare($sqlQuery)->bindParameters($parameters)->execute();
         } catch (Throwable $throwable) {
             throw $throwable;
         }

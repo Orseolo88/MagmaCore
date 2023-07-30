@@ -19,13 +19,16 @@ class QueryBuilderFactory
 
     }
 
+    /**
+     * @throws QueryBuilderException
+     */
     public function create(string $queryBuilderString): QueryBuilderInterface
     {
         $queryBuilderObject = new $queryBuilderString();
         if (!$queryBuilderObject instanceof QueryBuilderInterface) {
             throw new QueryBuilderException($queryBuilderString . ' is not a valid QueryBuilder object');
         }
-        return new QueryBuilder();
+        return $queryBuilderObject;
     }
 
 }
